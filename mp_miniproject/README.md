@@ -1,6 +1,6 @@
-As **The following is project readme:** describes, I chose the first option: A command shell. And, all my code related to
-this project is put inside **code** directory.
+I chose the first option: A command shell and pack all my code related to this project inside the **code** directory.
 
+## readme given by the professor
 Your final programming assignment is the "mini-project."
 For this assignment, you have may choose from two different
 options. You only need to choose ONE of these options (do
