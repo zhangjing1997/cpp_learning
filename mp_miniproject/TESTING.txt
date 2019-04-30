@@ -1,0 +1,702 @@
+(1) Run ./myShell < testcases/input1.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because it encounters EOF firstly.
+(2) Run ./myShell < testcases/input2.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because '\n' means the command line is empty and EOF is encountered lastly.
+(3) Run ./myShell < testcases/input3.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is corrrect because both single space and multiple spaces mean the command line is empty and EOF is encountered lastly.
+(4) Run ./myShell < testcases/input4.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the command is "exit".
+(5) Run ./myShell < testcases/input5.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Hello World!
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is because myProg is a good excutable program that returns successfully(result is as expected) and EOF is encountered lastly.
+(6) Run ./myShell < testcases/input6.txt
+    You will see that it will print 
+    myShell:/home/jz268/ece551/mp_miniproject $ *** stack smashing detected ***: <unknown> terminated
+    Program was killed by signal 11fow
+    [replace 11 with the actual signal]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because brokenProg wants to access invalid address so that the the child process is terminated and EOF is encountered lastly.
+(7) Run ./myShell < testcases/input7.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because the program exit(EXIT_FAILURE) before return and EOF is encountered lastly.
+(8) Run ./myShell < testcases/input8.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ execve(): No such file or directory
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because ./nonexistProg is not an existed program in the specified directory and when execve fails the child process exit(EXIT_FAILURE) and EOF is encountered lastly.
+(9) Run ./myShell < testcases/input9.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Hello World!
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because there is a same myProg in the parrent directory and the output is as expected and EOF is encountered lastly.
+(10) Run ./myShell < testcases/input10.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $    README        backup.txt   brokenProg.cpp   cmdLine.h		 envMap.h    killProg	    myProg.cpp	 myShell.cpp    output.txt    parse.h   printInput	 testcases
+    Makefile	  TESTING.txt   brokenProg   builtin.h	      commandShell.txt	 input.txt   killProg.cpp   myShell	 numerics.txt   output1.txt   path.h    printInput.cpp
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because it prints the names of directories in the current working directory and EOF is encountered lastly.
+(11) Run ./myShell < testcases/input11.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ total 864
+    -rw-rw-r-- 1 jz268 jz268   3760 Dec  5 05:18 '#TESTING.txt#'
+    -rw-rw-r-- 1 jz268 jz268    430 Dec  5 01:45  Makefile
+    -rw-rw-r-- 1 jz268 jz268   2475 Nov 12 15:42  README
+    -rw-rw-r-- 1 jz268 jz268   2653 Dec  5 05:00  TESTING.txt
+    -rw-rw-r-- 1 jz268 jz268   8594 Dec  3 14:43  backup.txt
+    -rwxrwxr-x 1 jz268 jz268   8312 Dec  5 01:55  brokenProg
+    -rw-rw-r-- 1 jz268 jz268    128 Dec  5 01:54  brokenProg.cpp
+    -rw-rw-r-- 1 jz268 jz268   5969 Dec  4 23:39  builtin.h
+    -rw-rw-r-- 1 jz268 jz268   8986 Dec  5 03:42  cmdLine.h
+    -rw-rw-r-- 1 jz268 jz268   7055 Nov 12 15:42  commandShell.txt
+    -rw-rw-r-- 1 jz268 jz268   2550 Dec  4 20:10  envMap.h
+    -rw-rw-r-- 1 jz268 jz268     14 Dec  5 03:39  input.txt
+    -rwxrwxr-x 1 jz268 jz268  60768 Dec  5 01:38  killProg
+    -rw-rw-r-- 1 jz268 jz268    205 Dec  5 01:38  killProg.cpp
+    -rw-rw-r-- 1 jz268 jz268     80 Dec  5 01:23  myProg.cpp
+    -rwxrwxr-x 1 jz268 jz268 514688 Dec  5 05:08  myShell
+    -rw-rw-r-- 1 jz268 jz268   1885 Dec  5 04:03  myShell.cpp
+    -rw-rw-r-- 1 jz268 jz268   8881 Nov 12 15:42  numerics.txt
+    -rw-rw---- 1 jz268 jz268    107 Dec  4 00:47  output.txt
+    -rw-rw-r-- 1 jz268 jz268   1116 Dec  2 01:56  output1.txt
+    -rw-rw-r-- 1 jz268 jz268   8939 Dec  4 20:58  parse.h
+    -rw-rw-r-- 1 jz268 jz268   3292 Dec  5 05:07  path.h
+    -rwxrwxr-x 1 jz268 jz268 165688 Dec  5 04:33  printInput
+    -rw-rw-r-- 1 jz268 jz268    673 Dec  5 04:33  printInput.cpp
+    drwxrwxr-x 2 jz268 jz268   4096 Dec  5 05:20  testcases
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because it take the option correclty and prints the information about the directories in the current working directory as expected and EOF is encountered lastly.
+(12) Run ./myShell < testcases/input12.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ '#TESTING.txt#'   README        backup.txt   brokenProg.cpp   cmdLine.h		 envMap.h    killProg	    myProg.cpp	 myShell.cpp    output.txt    parse.h   printInput	 testcases
+ Makefile	  TESTING.txt   brokenProg   builtin.h	      commandShell.txt	 input.txt   killProg.cpp   myShell	 numerics.txt   output1.txt   path.h    printInput.cpp
+Program exited with status 0
+[replace 0 with the actual exit status]
+myShell:/home/jz268/ece551/mp_miniproject $ 000_submit	009_read4	  018_ch05rq	  027_tests_power  036_tests_subseq   045_read_arr3	    054_minesweeper   063_read_refs	072_int_array	   081_expr_eval1  090_lls	      099_ch24rq	myProg
+001_ch01rq	010_numbers	  019_retirement  028_power_rec    037_array_subseq   046_read_encr	    055_ch13rq	      064_ch15rq	073_int_matrix	   082_expr_eval2  091_ch22rq	      100_huff_freq	test
+002_alg		011_comp_arith	  020_rect	  029_num_seq	   038_ch10rq	      047_break_encr	    056_kvs	      065_read_constr1	074_ch17rq	   083_expr_eval3  092_traversals     101_huff_tree
+003_ch02rq	012_complex_ty	  021_ch06rq	  030_ch08rq	   039_read_arr2      048_tests_rot_matrix  057_outname       066_read_constr2	075_read_template  084_ch19rq	   093_tests_binsrch  102_huff_map
+004_read1	013_ch04rq	  022_testing	  031_read_ptr1    040_id_mem_errors  049_rot_matrix	    058_counts	      067_point		076_read_templ2    085_read_exn    094_binsrch	      103_huff_all
+005_read2	014_code1	  023_testing2	  032_read_ptr2    041_reverse_str    050_ch12rq	    059_put_together  068_circle	077_sort_cpp	   086_read_vec    095_bst_map	      104_ch25_26rq
+006_fix_syntax	015_code2	  024_debugging   033_ch09rq	   042_bits_arr       051_read_leaks	    060_stat	      069_ch16rq	078_matrix_tmpl    087_ch20rq	   096_bst_set	      105_ch27_28_29rq
+007_ch03rq	016_squares	  025_ch07rq	  034_read_arr1    043_election       052_fix_vg_encr	    061_ch14rq	      070_read_refs2	079_ch18rq	   088_ch21rq	   097_ch23rq	      README.txt
+008_read3	017_read_squares  026_read_rec1   035_array_max    044_ch11rq	      053_sort_lines	    062_read_cpp      071_read_strs	080_read_inh	   089_tests_lls   098_dedup	      mp_miniproject
+Program exited with status 0
+[replace 0 with the actual exit status]
+myShell:/home/jz268/ece551/mp_miniproject $
+    which is because the two command lines repectively take the current directory and parrent directory as arguments and the output result is as expected and EOF is encountered lastly.
+(13) Run ./myShell < testcases/input13.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ '#TESTING.txt#'   README        backup.txt   brokenProg.cpp   cmdLine.h		 envMap.h    killProg	    myProg.cpp	 myShell.cpp    output.txt    parse.h   printInput	 testcases
+ Makefile	  TESTING.txt   brokenProg   builtin.h	      commandShell.txt	 input.txt   killProg.cpp   myShell	 numerics.txt   output1.txt   path.h    printInput.cpp
+Program exited with status 0
+[replace 0 with the actual exit status]
+    which is correct because the ouput result for executing /bin/ls is as expected(it print the file or directory information of the currrent working directory) and two child processes return successfully and EOF is encountered lastly.
+(14) Run ./myShell < testcases/input14.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Command myProg not found
+    [replace myProg with the actual command name]
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because myProg cannot be searched in each direcotry specified by ECE551PATH (which corresponds to /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games)and the child process exit(EXIT_FAILURE(the value does not the direcotry that contains myProg)) and EOF is encountered lastly.
+(15) Run ./myShell < testcases/input15.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ Hello World!
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because executing the first command line(set ECE551PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jz268/ece551/mp_miniproject) and the second command line(export ECE551PATH) will respectively print a new prompt and the output result of excuting the third command line is as expected and EOF is encountered lastly. Note that only when we change the value of ECE551PATH to include /home/jz268/ece551/mp_miniproject that myProg could be executed successfully.
+(16) Run ./myShell < testcases/input16.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: a(end)
+    arg2: b(end)
+    arg3: 23(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because the output results of printing arguments are as expected(this is the most standard format of command line) and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(17) Run ./myShell < testcases/input17.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: a(end)
+    arg2: b(end)
+    arg3: 23(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of printing arguments are as expected(my shell would parse multiple separate spaces as single separate space) and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(18) Run ./myShell < testcases/input18.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: a b(end)
+    arg2: 23(end)
+    arg3: c (end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of printing arguments are as expected and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(19) Run ./myShell < testcases/input19.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: a b(end)
+    arg2: a 1(end)
+    arg3: a A(end)
+    arg4: a-(end)
+    arg5: 1 2(end)
+    arg6: 3=+(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of printing arguments are as expected(my program would parse numbers, case-sensitive letters, symbols in the same way) and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(20) Run ./myShell < testcases/input20.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: a(end)
+    arg2:   (end)
+    arg3: b(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of printing arguments are as expected(eg. my program would parse '\ ' as ' ') and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(21) Run ./myShell < testcases/input21.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: ab(end)
+    arg2: c(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of printing arguments are as expected(eg. my program would parse '\a' as 'a') and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(22) Run ./myShell < testcases/input22.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: a b(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of printing arguments are as expected(eg. my program would parse 'a\' as 'a') and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(23) Run ./myShell < testcases/input23.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $
+    arg1: a(end)
+    arg2: b(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of printing arguments are as expected(eg. my program would parse '\a' as 'a' and 'b\' as 'b' at the same time) and the child process of executing printArgs return successfully, and EOF is encountered lastly.
+(24) Run ./myShell < testcases/input24.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ execve(): No such file or directory
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the command /bin/nonExistProg is not existing so execve() failed and the child process of exceuting the command line exit(EXIT_FAILURE), and EOF is encountered lastly.
+(25) Run ./myShell < testcases/input25.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Hello World!
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because my shell would only take first argument from standard input as a command so it would just execute the first command and the child process returned successfully, and EOF is encountered lastly.
+(26) Run ./myShell < testcases/input26.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ This is the content of input.txt.
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    which is correct because the output results of executing "cat input.txt" are the same as the contents of input.txt, the child process returned successfully and EOF is encountered lastly.
+(27) Run ./myShell < testcases/input27.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ This is the content of input.txt.
+    This is the content of input1.txt.
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the output results of executing "cat input.txt input1.txt" are the same as printing the contents of input.txt and input1.txt in order(but finished in the same child process) and the child process returned successfully, and EOF is encountered lastly.
+(28) Run ./myShell < testcases/input28.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Program was killed by signal 11fow
+    [replace 11 with the actual signal]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because
+    ....
+(29) Run ./myShell < testcases/input29.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/ $
+    which is correct because the behavior of executing only "cd" in the original Shell is to change to the root directory so it prints the prompt of showing the root directory and EOF comes after it.
+(30) Run ./myShell < testcases/input30.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because the second prompt is given by executing "cd ./" which would stay at the current directory and the third and the fourth prompt are gieven by executing repectively "cd ." and "cd     ." which would both stay at the current directory so it prints the same prompt of showing the current direcotry and EOF comes after it.
+(31) Run ./myShell < testcases/input31.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551 $ myShell:/home/jz268 $ myShell:/home/jz268/ece551 $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268 $ myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the first prompt is given before excuting the first command line "cd ../" (which would change to the parent directory), then the second prompt comes after it; Then because executing "cd   ../" would further change to the parent directory(which at the same time proves it also allows spaces between "cd" and arguments when changing to the parent directory); the third prompt is because executing "cd ece551"(which would change to the child directory: ece551) and show the corresponding prompt; and the fourth prompt comes because further changes to the child directory: mp_miniproject; the last two prompt are given by changing directory two uper levels or lower levels once (which proves that changing directory back and forth works well and at the same time proves change to children directory more than one level in one step works well too).
+(32) Run ./myShell < testcases/input32.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ chdir(): No such file or directory
+    myShell:/home/jz268/ece551/mp_miniproject $ chdir(): No such file or directory
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because both command lines of executing "cd" to an nonexisting directory make chdir() failed so that the direcotry stays at the current directory after executing two times.
+(33) Run ./myShell < testcases/input33.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ -bash cd: too many arguments
+    myShell:/home/jz268/ece551/mp_miniproject $ -bash cd: too many arguments
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because both command lines of executing "cd" to two directories at the same time make cd reports errors so that the direcotry stays at the current directory after executing two times.
+(34) Run ./myShell < testcases/input34.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 7
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because the x has been set as 7 firstly and then $x would convert to the value of x, i.e. 7, but y has not been set as a valid variable now, so $y would convert to an empty string, and $$x take $x as a variable to do evaluation but it is clearly not a valid variable so it must has not been set, so $$x would convert to an empty string.
+(35) Run ./myShell < testcases/input35.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 5
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 12
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 21
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1-2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 2 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1 2 5
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the first three command lines respectively set x_1 as 1, set Y_2 as 2, set _34 as 5, so it will print only four prompts(including the initialized prompt) in the first line of output; then the next three command lines respectively echo the value of x_1, Y-2, _34, so it will repectively print the corresponind value and the information of finishing the corresponding child process; then the next three command lines combines the evaluation of two of the three variables together and print corresponding value and information of finishing child process; the last command line combines the three variables' evaluations together which will do similar operation libke before except the result output is longer.
+(36) Run ./myShell < testcases/input36.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ Hello World!
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 3
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because the first two command lines respectively set A as 1, set B as Hello World!, it will just print three prompts(including the original prompt); then the next three commands do operation of "inc variable": since A' value is represented as a base10 number, inc A will increase its value to 2; on the other hand, B is not represented as a base10 number, inc B will treat it as 0 and increase its value to 1; and since C has not been set as a variable, inc C will treat is as 0 and increase its value to 1; then the last three command lines print the value of A, B, C so it will print 2, 1, 1 respectively along with information of finishing child process; then the next line inc A B C at the same commmand line, their value would repectively increases 1, which is 3, 2, 2 repectively.
+(37)  Run ./myShell < testcases/input37.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 1--
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1--
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1- -
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the four command lines repectively set x as ""(because there is not anything after x), set a as "",(because there is just one space after a) set b as " "(because there is two spaces after b), set y as 1, so it will only print five prompts(including the original prompt); then the next three command lines do echo of combinations of varibales' evaluation: $y-$x- would convert into 1-- because $x is an empty string; $y-$a- would convert into 1-- because $a would also convert into an empty string; $y-$b- would convert into 1- - because $b would convert into " ".
+(38)  Run ./myShell < testcases/input38.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ -bash set: too few arguments
+    myShell:/home/jz268/ece551/mp_miniproject $ -bash set: too few arguments
+    myShell:/home/jz268/ece551/mp_miniproject $ +1 is not a valid variable
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ./myShell
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because the first two command lines of excuting buitin command(set) has no arguments, so it will report the error information according to the setting in my shell; the third command line tries to take +1 as a variable name, but it contains '+' which is not a valid variable symbol, so it will also report the corresponding error information; the last command line print the value of x which is exactly a program name, which does not affect the parsing way for set command;
+(39) Run ./myShell < testcases/input39.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 
+    arg1: 1 -(end)
+    arg2: -2(end)
+    arg3: 3(end)
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because the first three command lines respectively set x as 1, A_1 as -2, set 2a_ as 3, so it will firstly print only four prompts (including one original prompt); the last command line take the variabls as arguments of program(./printArgs that will print the arguments), since "\ " converts into " " and $x converts into " 1", so $x\ - will convert into " 1 -"; similarly, $A_1 will convert into "-2", $2a_ will convert into "   3", $c will convert into empty string since c has not been set as a variable, but one thing to mention, when those conversions done, there are some spaces between them, so actually ./printArgs will just identify three arguments: arg1: 1 -,arg2: -2, arg3: 3.
+(40) Run ./myShell < testcases/input40.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ y
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because x has been set as y and z has been set as value of x, which is y. So now x=y, z=y; then "echo $z" will print the value of z, which is "y"; then "set $x 1" which equals to "set y 1", so when doing the next command line: "echo $y", which will print value of y, which is "1".
+(41) Run ./myShell < testcases/input41.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 3
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 3p
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because when my Shell is doing $ evaluation, it will take the longest variable immediately following "$" to expand the evaluation, so here we have x=1, xy=2, xyz=3, then when do "echo $xy" it will print "2" because xy is longer than x and both of them are valid variables; then when do "echo $xyz" it will print the value of xyz according to the same rule, which is "3"; then when do "echo $xyzp" it will print "3p" because xyzp is not a valid variable so it will just expands to the longest variable's value and researve antyhing immediatelly following the variable name.
+(42) Run ./myShell < testcases/input42.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    x=Hello
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    x=Hello
+    y=World
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    x=Hello
+    y=World
+    z1=
+    z2= 
+    p1=--
+    p2=- -
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    x=Hello
+    y=World
+    z1=
+    z2= 
+    p1=--
+    p2=- -
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because firstly we set x as Hello, and do env, we will see that x does not show up in the environment when doing env; similarly, we set y as Wolrd, and do env; set z1 as "" and z2 as " ", and do env;
+    we will still not see the z1 and z2 showing up in env; then we set p1 as -$z1-, which is actually "--"; set p2 as -$z2-, which is actually "- -"; still when check env, they would not show up inenvironment; Now we have variables:
+    x=Hello, y=World, z1="", z2=" ", p1="--", p2="- -";
+    then when we export single variable x and y respectively and check env respectively, we will see that env will contains "x=Hello" and "y=World";
+    then when we export multiple variabls z1, z2, p1 and p2 at the same command line, we will see that env will contains "z1=", "z2= ", "p1=--", "p2=- -".(From the value of p1 and p2, we could see the difference between the value of z1 and z2 even though that they seems same when they are printed out on screen);
+    lastly, when we do export without giving any arguments, then env will not change at all;
+(43) Run ./myShell < testcases/input43.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    x=1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1has not been set
+    myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    x=1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ ECE551PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+    x=1
+    1x=2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because after doing "set x 1", "set y x", "set 1x 2"we have x=1, y=x, 1x=2; then when we "export $y", it will actually export variable x into the environment; then when we check env, we see that x=1 has been added;
+    then when we "export $x", it will actually export 1 but 1 has not been set a variable yet, so when we check env after ecport, the environment has not changed at all.
+    then when we "export $x$y", it will actually export variable 1x so that when do env we will see the "1x=2" would show up in environment.
+(44) Run ./myShell < testcases/input44.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because firstly "set x 1", then we have "x=1"; then "echo $x" it will print the value of x, which is "1";
+    then when we do "echo $$x and echo $$$x", my Shell would shrink multiple evlauations before a variable into just one evaluation.
+(45)Run ./myShell < testcases/input45.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    2
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because firstly "cat numbers.txt", it will print the number of each line in numbers.txt, just like the print resulsts shows;
+    secondly "cat < numbers.txt", it will redirect the contents form numbers.txt line by line, and print out thtough executing "cd";
+    thirdly, according to the thoughts of program(printInput), the smaller of agrv[1](that is 2) and the number of lines in numbers.txt defines the number of lines should be printed out starting from the first line. Since argv[1]=2 is smaller, so the child program will print out the first 2 lines of numbers.txt, that is just 1 and 2(line by line).
+(46) Run ./myShell < testcases/input46.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ execve(): No such file or directory
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    open(): No such file or directory
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 
+    which is correct because firstly exectute "./nonExistedProg < input.txt", since nonExistedProg does not exist in the current directory which made execve() fail, and print a line of error information;
+    secondly execute "./printIntput < nonExistedFile.txt", since nonExistedFile.txt does not exist in the current directory which make open() fail, and print a line of error information;
+(47) Run ./myShell < testcases/input47.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ 1
+    2
+    3
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because firstly "./printInput 3 < numbers.txt > output.txt", printInput take right number of arguments, and argv[1] decides the number of of lines in numbers.txt defines the number of lines should be printed out starting from the first line. Since argv[1]=3 is smaller, so the child program will print out the first 2 lines of numbers.txt, that is just 1, 2 and 3(line by line) into the file output.txt; So then when we do "cat output.txt" it will print the contents of output.txt, which is also the output results of excuting the first command line.
+(48) Run ./myShell < testcases/input48.txt
+    You will see that it will print
+    myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+    Program exited with status 0
+    [replace 0 with the actual exit status]
+    myShell:/home/jz268/ece551/mp_miniproject $
+    which is correct because when firstly execute the first command line, printInput take wrong number of arguments(argc = 1), so it will print the output error information into a error file(if not existing, it will be created); then when secondly execute the second command line, it will print out the contents of the file(outerr.txt), which is also the error information results of executing the first command line;
+(49) Run ./myShell < testcases/input49.txt
+     You will see that it will print
+     myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $
+     which is correct because all the print out results of executing different command lines give corresponding error reporting information. The principles that my Shell parses the redirection would not take redirection symbol attahced or followed with filename as effective redirection, so as for this specific child program "printInput", the number of arguments is not right so that it will just print out error information.
+(50) Run ./myShell < testcases/input50.txt
+     You will see that it will print
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ 1
+     2
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ 1
+     2
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ 1
+     2
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ /bin/cat: outerr1.txt: No such file or directory
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ 
+     which is correct because my Shell will only take the first redirection file(whether input file, output file, or error file), so when executing the first command line, it will just take numbers.txt as inputFile and ignore nonExistedFile.txt, so when nextly excuting "cat output.txt", it will print out the the contents of output.txt, which is also the print out results of excuting the first command line; Then when executing the third command line, similarly, it will just take numers.txt as input file except that it will not return successfully but print out error information, ad then cat will do similar operation; Then when executing the fifth command line, similarly, it will just take output.txt as output redirection file; Then when executing the seventh command line, similarly, it will just take numbers.txt as redirection input file and outerr.txt as redirection error file. So when laterly "cat outerr1.txt", open() would fail beca(51) Run ./myShell < testcases/input51.txt
+     You will see that it will print
+     myShell:/home/jz268/ece551/mp_miniproject $ total 1372
+     -rw-rw-r-- 1 jz268 jz268    497 Dec  5 06:21 Makefile
+     -rw-rw-r-- 1 jz268 jz268   2475 Nov 12 15:42 README
+     -rw-rw-r-- 1 jz268 jz268  44492 Dec  5 21:36 TESTING.txt
+     -rw-rw-r-- 1 jz268 jz268   8594 Dec  3 14:43 backup.txt
+     -rwxrwxr-x 1 jz268 jz268   8312 Dec  5 01:55 brokenProg
+     -rw-rw-r-- 1 jz268 jz268    128 Dec  5 01:54 brokenProg.cpp
+     -rw-rw-r-- 1 jz268 jz268   6262 Dec  5 15:16 builtin.h
+     -rw-rw-r-- 1 jz268 jz268   8813 Dec  5 20:12 cmdLine.h
+     -rw-rw-r-- 1 jz268 jz268   7055 Nov 12 15:42 commandShell.txt
+     drwxrwxr-x 2 jz268 jz268      6 Dec  5 12:06 dir1
+     -rw-rw-r-- 1 jz268 jz268   2550 Dec  4 20:10 envMap.h
+     -rw-rw-r-- 1 jz268 jz268     34 Dec  5 10:44 input.txt
+     -rw-rw-r-- 1 jz268 jz268     35 Dec  5 10:49 input1.txt
+     -rwxrwxr-x 1 jz268 jz268  60768 Dec  5 01:38 killProg
+     -rw-rw-r-- 1 jz268 jz268    205 Dec  5 01:38 killProg.cpp
+     -rw-rw-r-- 1 jz268 jz268     30 Dec  5 17:51 letters.txt
+     -rwxrwxr-x 1 jz268 jz268  75240 Dec  5 05:59 myProg
+     -rw-rw-r-- 1 jz268 jz268     80 Dec  5 01:23 myProg.cpp
+     -rwxrwxr-x 1 jz268 jz268 514832 Dec  5 21:43 myShell
+     -rw-rw-r-- 1 jz268 jz268   1791 Dec  5 11:31 myShell.cpp
+     -rw-rw-r-- 1 jz268 jz268     21 Dec  5 17:52 numbers.txt
+     -rw-rw-r-- 1 jz268 jz268   8881 Nov 12 15:42 numerics.txt
+     -rw-rw---- 1 jz268 jz268      0 Dec  5 21:23 outerr.txt
+     -rw-rw---- 1 jz268 jz268      1 Dec  5 21:46 output.txt
+     -rw-rw-r-- 1 jz268 jz268   1116 Dec  2 01:56 output1.txt
+     -rw-rw-r-- 1 jz268 jz268   9123 Dec  5 21:43 parse.h
+     -rw-rw-r-- 1 jz268 jz268   3292 Dec  5 05:07 path.h
+     -rwxrwxr-x 1 jz268 jz268 396824 Dec  5 08:16 printArgs
+     -rw-rw-r-- 1 jz268 jz268    293 Dec  5 17:43 printArgs.cpp
+     -rwxrwxr-x 1 jz268 jz268 153992 Dec  5 17:48 printInput
+     -rw-rw-r-- 1 jz268 jz268    617 Dec  5 17:48 printInput.cpp
+     drwxrwxr-x 2 jz268 jz268   4096 Dec  5 21:52 testcases
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $
+     which is correct because it executes "ls -l" to print the specific information of all th files or directories of the current working directory, and pipe the output as the input of executing 'cat", so those information would be printed out as expeceted.
+(52) Run ./myShell < testcases/input52.txt
+     You will see that it will print
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     1
+     2
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $
+     which is correct because it "./printInput 2 < numbers.txt" firstly, the desirable output result should be the first two lines of numbers.txt, which is just 1 and 2 (line by line) and then pipe the ouput as the input of excuting "cat" and continually pipe the result output into another "cat", which would print the results of excuting the first piped command out.
+(53) Run ./myShell < testcases/input53.txt
+     You will see that it will print
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program was killed by signal 11fow
+     [replace 11 with the actual signal]
+     
+     arg1: 1(end)
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $
+     which is correct because the desirable output result should be the first two lines of numbers.txt, which is just 1 and 2 (line by line) and then pipe the ouput as the input of excuting "./printArgs 1" which would print an empty new line firstly and then print only 1 argument given by input, so only "1" would be piped as the input of the last "cat" commmand, which is as expected.
+(54) Run ./myShell < testcases/input54.txt
+     You will see that it will print
+     yShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ 1
+     2
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ too few arguments
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $ 
+     which is correct because it actually excutes similarly as testcase(53) but the direfference is that "cat" redirect the output results into the file called outputPipe.txt, so when we "cat outputPie", it will print out the same results as executing testcase(53); and similarly, the later two command lines would redirect the error information into outerrPipe.txt, so when we "cat  outerrPipe.txt", it will print out the same error information.
+(55) Run ./myShell < testcases/input55.txt
+     You will see that it will print
+     Program was killed by signal 11fow
+     [replace 11 with the actual signal]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program was killed by signal 11fow
+     [replace 11 with the actual signal]
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ myShell:/home/jz268/ece551/mp_miniproject $
+     which is because when the pipe and redirection format is not right, it will be killed.(I'm sorry I cannot explain clearly when pipe format is not good).
+     [I have no time to write a very comprehensive fucntion to deal with the format of redirections and pipe, So I just stop writing corner cases for pipes here]
+(56) Run ./myShell < testcases/input56.txt
+     You will see that it will print
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $ Program exited with status 0
+     [replace 0 with the actual exit status]
+     myShell:/home/jz268/ece551/mp_miniproject $
+     which is correct because the first command line executes two comamnds which are respectively "cat ./large.txt" and "cat > ./large1.txt", so the contents of large.txt would be copied into large1.txt(it have same contents with large.txt), so when executing "diff ./large.txt ./large1.txt" it will not print any results saying the difference between large.txt and large1.txt.

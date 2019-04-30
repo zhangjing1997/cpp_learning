@@ -1,0 +1,170 @@
+#ifndef _LL_H_
+#define _LL_H_
+#include <assert.h>
+
+#include <cstdlib>
+#include <exception>
+#include <string>
+
+//YOUR CODE GOES HERE
+class myEXN : public std::exception
+{
+ protected:
+  std::string msg;
+
+ public:
+  explicit myEXN(const char * message) : msg(message) {}
+  explicit myEXN(const std::string & message) : msg(message) {}
+  virtual ~myEXN() throw() {}
+  virtual char const * what() const throw() { return msg.c_str(); }
+};
+
+void testList(void);
+
+template<typename T>
+class LinkedList
+{
+  class Node
+  {
+   public:
+    T data;
+    Node * next;
+    Node * prev;
+    Node() : data(), next(NULL), prev(NULL) {}
+    Node(const T & item, Node * ptr1, Node * ptr2) : data(item), next(ptr1), prev(ptr2) {}
+  };
+  Node * head;
+  Node * tail;
+  int size;
+
+ public:
+  friend void testList(void);
+  //default constructor
+  LinkedList() : head(NULL), tail(NULL), size(0) {}
+  //copy constructor
+  LinkedList(const LinkedList & rhs) : head(NULL), tail(NULL), size(0) {
+    Node * current = rhs.tail;
+    while (current != NULL) {
+      this->addFront(current->data);
+      current = current->prev;
+    }
+  }
+  //operator= (assignment constructor)
+  LinkedList & operator=(LinkedList & rhs) {
+    if (this != &rhs) {
+      LinkedList<T> * temp = new LinkedList<T>;
+      Node * current = rhs.tail;
+      while (current != NULL) {
+        temp->addFront(current->data);
+        current = current->prev;
+      }
+      (*this).~LinkedList();
+      head = temp->head;
+      tail = temp->tail;
+      size = rhs.size;
+      temp->head = NULL;
+      temp->tail = NULL;
+      delete temp;
+    }
+    return *this;
+  }
+  //destructor
+  ~LinkedList() {
+    while (head != NULL) {
+      Node * temp = head->next;
+      delete head;
+      size--;
+      head = temp;
+    }
+    tail = NULL;
+  }
+  //getSize
+  int getSize() const { return size; }
+  //addFront
+  void addFront(const T & item) {
+    head = new Node(item, head, NULL);
+    if (tail == NULL) {
+      tail = head;
+    }
+    else {
+      head->next->prev = head;
+    }
+    size++;
+  }
+  //addBack
+  void addBack(const T & item) {
+    tail = new Node(item, NULL, tail);
+    if (head == NULL) {
+      head = tail;
+    }
+    else {
+      tail->prev->next = tail;
+    }
+    size++;
+  }
+  //remove - using method: pointer to pointer to Node
+  bool remove(const T & item) {
+    int itemIndex = find(item);
+    if (itemIndex == -1) {
+      return false;
+    }
+    else {
+      Node ** current = &head;
+      while (*current != NULL && (*current)->data != item) {
+        current = &(*current)->next;  //update current to point at the box of (*current)->next
+      }
+      Node * tempNext = (*current)->next;  //reserve pointer to node(+1)
+      Node * tempPrev = (*current)->prev;  //reserve pointer to node(-1)
+      delete *current;                     //remove
+      *current = tempNext;                 //update "next" of node(-1) to point at node(+1)
+      if (*current == NULL) {              //if the removed node is the last node of the List
+        tail = tempPrev;                   //update tail because there is no node(+1)
+      }
+      else {                          //if not
+        (*current)->prev = tempPrev;  //update "prev" of node(+1)
+      }
+      size--;
+      return true;
+    }
+  }
+  //operator[] - const and non-const
+  T & operator[](int index) {
+    if (index < size && index >= 0) {
+      Node * ans = head;
+      while (index > 0) {
+        ans = ans->next;
+        index--;
+      }
+      return ans->data;
+    }
+    else {
+      myEXN outOfRange("index is out of valid range");
+      throw outOfRange;
+    }
+  }
+  const T & operator[](int index) const {
+    if (index < size && index >= 0) {
+      Node * ans = head;
+      while (index > 0) {
+        ans = ans->next;
+        index--;
+      }
+      return ans->data;
+    }
+    else {
+      myEXN outOfRange("index is out of valid range");
+      throw outOfRange;
+    }
+  }
+  //find
+  int find(const T & item) const {
+    for (int i = 0; i < size; i++) {
+      if ((*this)[i] == item) {
+        return i;
+      }
+    }
+    return -1;
+  }
+};
+
+#endif

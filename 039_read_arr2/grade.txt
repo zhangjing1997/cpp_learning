@@ -1,0 +1,10 @@
+Grading at 09/22/2018:21:09:48.869208
+For commit ID ea3f7d462f995c604abb8d94a4f5a7203d730ecc
+Attempting to compile test.c
+gcc -ggdb3 -std=gnu99 -pedantic -Wall -c test.c
+gcc -o test test.o
+compiled
+Your file matched the expected output
+Your output matched what we expected
+
+Overall Grade: A

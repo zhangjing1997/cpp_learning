@@ -1,0 +1,5 @@
+./printInput 2 <number.txt
+./printInput 2 number.txt<letters.txt
+./printInput 2 << numbers.txt
+./printInput 2 < numbers.txt >ouput.txt
+./printInput 2 < numbers.txt 2>ouerr1.txt

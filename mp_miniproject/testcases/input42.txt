@@ -1,0 +1,18 @@
+set x Hello
+env
+set y World
+env
+set z1
+set z2  
+env
+set p1 -$z1-
+set p2 -$z2-
+env
+export x
+env
+export y
+env
+export z1 z2 p1 p2
+env
+export 
+env

@@ -1,0 +1,22 @@
+aaaaa bbbbb
+aaaaa bbbbc
+aaabb bbbbc
+aaabc aaabb
+aaabc bbbb
+abcde abcde
+abbbc abbcb
+0 abcde
+aaa a bbbbc
+aa bb ccd d
+0011a 0001a
+aacde aaacd
+aaabc aaaad
+  a
+   aa
+aaaabc bbbbb
+aaaabcc bbbbbb
+aaaaa aaacec
+
+
+
+

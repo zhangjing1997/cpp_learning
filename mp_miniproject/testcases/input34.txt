@@ -1,0 +1,4 @@
+set x 7
+echo $x
+echo $y
+echo $$x

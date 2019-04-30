@@ -1,0 +1,7 @@
+set x
+set a
+set b  
+set y 1
+echo $y-$x-
+echo $y-$a-
+echo $y-$b-

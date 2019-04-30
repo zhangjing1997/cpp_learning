@@ -1,0 +1,8 @@
+Grading at 10/13/2018:00:18:12.150966
+For commit ID ff509ca9879406c1973bb8380340420814e60323
+Attempting to compile:
+g++ -o code -std=gnu++98 -pedantic -Wall -Werror code.cpp
+Your file matched the expected output
+Your output matched what we expected
+
+Overall Grade: PASSED

@@ -1,0 +1,32 @@
+kv.c:
+void stripNewline(char *str); //transform the '\n' at the end of a string to '\0'
+
+kvpair_t readAkvpair(char *str); //extract 'key' and 'value' from the line
+
+kvarray_t * readkvs(const char *fname);
+//read the inputfile into kvarray_t (including the array and the number of Kvpairs)
+
+void freeKVs(kvarray_t * pairs); //free memory allocated in readKVs
+
+void printKVs(kvarray_t * pairs);
+
+char * LookupValue(kvarray_t * pairs, const char * key);
+
+
+
+counts.c:
+counts_t * createCounts(void); //create a counts_t and initialize it
+
+void addCount(counts_t * c, const char * name); //given a name then decide its times and store the name if it did not appear before
+
+void printCounts(counts_t *c, FILE * outFile); //print the counts into outfile
+
+void freeCounts(counts_t * c);
+
+
+
+
+outname.c:
+
+char * computeOutputFileName(const char * inputName);
+

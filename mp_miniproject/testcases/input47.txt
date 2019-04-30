@@ -1,0 +1,2 @@
+./printInput 3 < numbers.txt > output.txt
+cat output.txt

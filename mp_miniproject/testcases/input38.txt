@@ -1,0 +1,5 @@
+set
+set 
+set +1 a
+set x ./myShell
+echo $x

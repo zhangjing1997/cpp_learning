@@ -1,0 +1,2 @@
+cat ./large.txt | cat > ./large1.txt
+diff ./large.txt ./large1.txt

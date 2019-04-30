@@ -1,0 +1,3 @@
+./printInput 2 < numbers.txt | | cat
+./printInput 2 < numbers.txt | > out.txt cat | cat
+

@@ -1,0 +1,4 @@
+set  x  1
+set    A_1 -2
+set   2a_   3
+./printArgs $x\ - $A_1 $2a_ $c

@@ -1,0 +1,2 @@
+./printInput < numbers.txt 2> outerr.txt
+cat outerr.txt

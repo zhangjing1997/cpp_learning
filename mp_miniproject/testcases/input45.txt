@@ -1,0 +1,4 @@
+cat numbers.txt
+cat < numbers.txt
+./printInput 2 < numbers.txt
+./printInput    2     <    numbers.txt

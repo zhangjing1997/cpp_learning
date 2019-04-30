@@ -1,0 +1,5 @@
+./printInput 2 < numbers.txt   |  cat > outputPipe.txt
+cat outputPipe.txt
+./printInput < numbers.txt | cat 2> outerrPipe.txt
+cat outerrPipe.txt
+

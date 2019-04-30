@@ -1,0 +1,2 @@
+cd ./dirNotExisted
+cd /home/jz268/ece551/mp_miniproject/dirNotExisted

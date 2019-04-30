@@ -1,0 +1,21 @@
+total 768
+-rw-rw-r-- 1 jz268 jz268   1974 Nov 28 15:44 backup.h
+-rw-rw-r-- 1 jz268 jz268   4328 Nov 30 18:04 builtin.h
+-rw-rw-r-- 1 jz268 jz268   6168 Dec  2 01:11 cmdLine.h
+-rw-rw-r-- 1 jz268 jz268   7055 Nov 12 15:42 commandShell.txt
+-rw-rw-r-- 1 jz268 jz268   2365 Nov 28 15:49 envMap.h
+-rw-rw-r-- 1 jz268 jz268   4340 Dec  2 01:40 execute.h
+-rw-rw-r-- 1 jz268 jz268   4321 Dec  2 01:32 execute.h~
+-rw-rw-r-- 1 jz268 jz268     34 Nov 30 16:04 input.txt
+-rw-rw-r-- 1 jz268 jz268    240 Dec  1 19:36 Makefile
+-rwxrwxr-x 1 jz268 jz268 153320 Nov 30 18:14 myProgram
+-rw-rw-r-- 1 jz268 jz268    590 Nov 30 18:13 myProgram.cpp
+-rwxrwxr-x 1 jz268 jz268 520952 Dec  2 01:33 myShell
+-rw-rw-r-- 1 jz268 jz268   1232 Nov 30 17:04 myShell.cpp
+-rw-rw-r-- 1 jz268 jz268   8881 Nov 12 15:42 numerics.txt
+-rw-rw-r-- 1 jz268 jz268      0 Dec  2 01:56 output1.txt
+-rw-rw---- 1 jz268 jz268     10 Dec  1 19:37 output.txt
+-rw-rw-r-- 1 jz268 jz268   7420 Dec  2 01:52 parse.h
+-rw-rw-r-- 1 jz268 jz268   7366 Dec  2 01:29 parse.h~
+-rw-rw-r-- 1 jz268 jz268   2333 Dec  1 15:32 path.h
+-rw-rw-r-- 1 jz268 jz268   2475 Nov 12 15:42 README

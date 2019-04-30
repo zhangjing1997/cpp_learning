@@ -1,0 +1,11 @@
+set x_1 1
+set Y_2 2
+set _34 5
+echo $x_1
+echo $Y_2
+echo $_34
+echo $x_1$Y_2
+echo $Y_2$x_1
+echo $x_1-$Y_2
+echo $Y_2 $x_1
+echo $x_1 $Y_2 $_34

@@ -1,0 +1,8 @@
+CFLAGS = -ggdb3 -std=gnu99 -pedantic -Wall
+test: test.o
+	gcc -o test test.o
+test.o:
+	gcc $(CFLAGS) -c test.c
+.PHONY: clean
+clean:
+	rm -f *.o *c~ *~

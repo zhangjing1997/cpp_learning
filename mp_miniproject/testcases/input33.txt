@@ -1,0 +1,2 @@
+cd dir1 testcases
+cd ./ ../

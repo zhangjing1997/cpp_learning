@@ -1,0 +1,8 @@
+./printInput 2 < numbers.txt < nonExistedFile.txt > output.txt
+cat output.txt
+./printInput < numbers.txt < nonExistedFile.txt 2> outerr.txt
+cat outerr.txt
+./printInput 2 < numbers.txt > output.txt > nonExistedFile.txt
+cat output.txt
+./printInput 2 < numbers.txt < nonExistedFile.txt 2> outerr.txt 2> outerr1.txt
+cat outerr.txt outerr1.txt

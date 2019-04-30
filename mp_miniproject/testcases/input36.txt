@@ -1,0 +1,14 @@
+set A 1
+set B Hello World!
+echo $A
+echo $B
+inc A
+inc B
+inc C
+echo $A
+echo $B
+echo $C
+inc A B C
+echo $A
+echo $B
+echo $C

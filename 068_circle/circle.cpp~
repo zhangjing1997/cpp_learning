@@ -1,0 +1,25 @@
+#include "circle.h"
+
+#include <math.h>
+
+Circle::Circle(Point p, const double d) : center(p), radius(d) {}
+void Circle::move(double dx, double dy) {
+  center.move(dx, dy);
+}
+double Circle::intersectionArea(const Circle & otherCircle) {
+  double d = center.distanceFrom(otherCircle.center);
+  double r1 = radius;
+  double r2 = otherCircle.radius;
+  if (d >= r1 + r2) {
+    return 0;
+  }
+  if (d <= abs(r1 - r2)) {
+    return M_PI * pow(fmin(r1, r2), 2);
+  }
+  double d1 = (pow(r1, 2) - pow(otherCircle.radius, 2) + pow(d, 2)) / (2 * d);
+  double d2 = (pow(otherCircle.radius, 2) - pow(radius, 2) + pow(d, 2)) / (2 * d);
+  double area1 = pow(radius, 2) * acos(d1 / radius) - d1 * sqrt(pow(radius, 2) - pow(d1, 2));
+  double area2 = pow(otherCircle.radius, 2) * acos(d2 / otherCircle.radius) -
+                 d2 * sqrt(pow(otherCircle.radius, 2) - pow(d2, 2));
+  return area1 + area2;
+}

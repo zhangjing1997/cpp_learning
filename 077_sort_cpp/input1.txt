@@ -1,0 +1,6 @@
+AABBC
+aABBC
+AaBBC
+AaCCD
+,.;
+/

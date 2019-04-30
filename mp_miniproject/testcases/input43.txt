@@ -1,0 +1,9 @@
+set x 1
+set y x
+set 1x 2
+export $y
+env
+export $x
+env
+export $x$y
+env

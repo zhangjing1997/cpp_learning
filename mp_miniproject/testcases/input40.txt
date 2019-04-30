@@ -1,0 +1,5 @@
+set x y
+set z $x
+echo $z
+set $x 1
+echo $y

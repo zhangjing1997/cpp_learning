@@ -1,0 +1,6 @@
+set x 1
+set xy 2
+set xyz 3
+echo $xy
+echo $xyz
+echo $xyzp

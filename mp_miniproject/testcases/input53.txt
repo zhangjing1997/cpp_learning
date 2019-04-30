@@ -1,0 +1,1 @@
+./printInput 2 < numbers.txt | ./printArgs 1 | cat
